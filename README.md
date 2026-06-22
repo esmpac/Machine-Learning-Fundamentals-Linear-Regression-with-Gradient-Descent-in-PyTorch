@@ -75,5 +75,41 @@ $$
 
 implemented using:
 
-```python
-torch.nn.Linear(1, 1)
+$$
+\text{Linear}(1,1)
+$$
+
+---
+
+### 3. Training Procedure
+
+The model is trained by minimizing the Mean Squared Error (MSE):
+
+$$
+\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
+$$
+
+Optimization is performed using Stochastic Gradient Descent:
+
+$$
+\theta \leftarrow \theta - \eta \nabla_\theta \mathcal{L}
+$$
+
+Parameters:
+- batch size = 32  
+- learning rate = 0.01  
+- epochs = 10  
+
+---
+
+### 4. Parameter Estimation and Inference
+
+Backpropagation computes gradients and updates parameters iteratively until convergence.
+
+The final model is:
+
+$$
+\hat{y} = wx + b
+$$
+
+---
