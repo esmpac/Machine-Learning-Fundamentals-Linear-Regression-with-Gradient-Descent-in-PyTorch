@@ -114,9 +114,6 @@ $$
 
 ---
 
-
----
-
 ## Learned Parameters
 
 $$
