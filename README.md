@@ -113,3 +113,65 @@ $$
 $$
 
 ---
+
+
+---
+
+## Learned Parameters
+
+$$
+w = 3.0503, \quad b = 2.1206
+$$
+
+True underlying model:
+
+$$
+y = 3x + 2
+$$
+
+---
+
+## Prediction Example
+
+For:
+
+$$
+x = 7
+$$
+
+Prediction:
+
+$$
+\hat{y} = 23.4725
+$$
+
+True value:
+
+$$
+y = 23
+$$
+
+---
+
+## Repository Structure
+
+- `code/` → PyTorch training pipeline  
+- `images/` → diagrams and workflow  
+- `results/` → logs and outputs  
+
+---
+
+## Notes
+
+- Fully synthetic dataset
+- Linear model assumption
+- SGD convergence depends on hyperparameters
+- Noise introduces variance but does not bias the estimator
+- Fully reproducible pipeline
+
+---
+
+## Author
+
+Developed by Erasmo Pacini  
+Machine Learning fundamentals project using PyTorch
