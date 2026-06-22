@@ -1,0 +1,30 @@
+Linear Regression with PyTorch - Training Log
+
+----------------------------------------
+
+Epoch 1, Loss: 10.6342
+Epoch 2, Loss: 4.2309
+Epoch 3, Loss: 4.0416
+Epoch 4, Loss: 4.0812
+Epoch 5, Loss: 4.0446
+Epoch 6, Loss: 4.0433
+Epoch 7, Loss: 4.0063
+Epoch 8, Loss: 4.0779
+Epoch 9, Loss: 4.0236
+Epoch 10, Loss: 4.0485
+
+----------------------------------------
+
+Learned parameters:
+w = 3.0503
+b = 2.1206
+
+----------------------------------------
+
+Test prediction:
+x = 7 → y_pred = 23.4725
+
+----------------------------------------
+
+Ground truth comparison:
+y = 3x + 2 → y = 23
