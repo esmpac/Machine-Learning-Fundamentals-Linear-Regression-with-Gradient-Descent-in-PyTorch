@@ -3,17 +3,15 @@
 
 
 
-This project implements a full analysis pipeline for a simple linear regression model trained with PyTorch and Stochastic Gradient Descent (SGD).
+This project implements a full analysis pipeline for a simple linear regression model trained using PyTorch and Stochastic Gradient Descent (SGD).
 
 The goal is to recover the parameters of a linear system from noisy synthetic data through a complete workflow including data generation, model definition, training, and evaluation.
 
-The analysis follows a standard machine learning procedure and studies how gradient-based optimization can learn the underlying relation:
+The analysis studies how gradient-based optimization can learn the underlying relation:
 
 \[
-y = 3x + 2 + \epsilon
+y = 3x + 2 + \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)
 \]
-
-where \( \epsilon \sim \mathcal{N}(0, \sigma^2) \) represents Gaussian noise.
 
 ---
 
@@ -21,28 +19,28 @@ where \( \epsilon \sim \mathcal{N}(0, \sigma^2) \) represents Gaussian noise.
 
 The dataset is synthetically generated to simulate a controlled regression problem.
 
-- **Input variable (X)**: uniformly sampled in the range \([0, 10]\)  
-- **Noise term (\(\epsilon\))**: Gaussian noise with zero mean and fixed variance  
-- **Target variable (y)**:
+- Input variable \(x\): uniformly sampled in \([0, 10]\)
+- Noise term \(\epsilon\): Gaussian noise with zero mean and fixed variance
+- Target variable:
 
 \[
 y = 3x + 2 + \epsilon
 \]
 
-The dataset is generated in NumPy and converted into PyTorch tensors for training.
+The dataset is generated using NumPy and converted into PyTorch tensors.
 
 ---
 
 ## Requirements
 
-1. Python version
+1. Python version:
 - Python 3.9 or higher
 
-2. Python packages
+2. Python packages:
 - torch
 - numpy
 
-3. Standard libraries
+3. Standard libraries:
 - pathlib (optional)
 
 ---
@@ -55,16 +53,21 @@ The analysis is structured into four main stages.
 
 ### 1. Data Generation
 
-- Synthetic dataset creation
-- Sampling from a uniform distribution
-- Addition of Gaussian noise
+- Sampling \(x \sim \mathcal{U}(0, 10)\)
+- Generating noise \(\epsilon \sim \mathcal{N}(0, \sigma^2)\)
+- Constructing target variable:
+
+\[
+y = 3x + 2 + \epsilon
+\]
+
 - Conversion to PyTorch tensors
 
 ---
 
 ### 2. Model Definition
 
-The model is a simple linear regression of the form:
+The model is a linear function:
 
 \[
 \hat{y} = wx + b
@@ -73,43 +76,44 @@ The model is a simple linear regression of the form:
 implemented using:
 
 \[
-\texttt{torch.nn.Linear(1, 1)}
+\text{Linear}(1,1)
 \]
 
-The parameters \(w\) and \(b\) are initialized randomly and optimized during training.
+where \(w\) and \(b\) are learnable parameters.
 
 ---
 
 ### 3. Training Procedure
 
-- Loss function: Mean Squared Error (MSE)
+The model is trained by minimizing the Mean Squared Error (MSE):
 
 \[
 \mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
 \]
 
-- Optimizer: Stochastic Gradient Descent (SGD)  
-- Batch size: 32  
-- Learning rate: 0.01  
-- Epochs: 10  
-
-The optimization follows the update rule:
+Optimization is performed using Stochastic Gradient Descent:
 
 \[
 \theta \leftarrow \theta - \eta \nabla_\theta \mathcal{L}
 \]
 
+with:
+- batch size = 32  
+- learning rate = 0.01  
+- epochs = 10  
+
 ---
 
-### 4. Parameter Estimation and Inference
+### 4. Inference and Parameter Estimation
 
-- Backpropagation via PyTorch autograd
-- Gradient computation of loss w.r.t. parameters
-- Iterative update of \(w\) and \(b\)
-- Final evaluation on a test input
+- Backpropagation is used to compute gradients
+- Parameters \(w\) and \(b\) are updated iteratively
+- Final learned model:
+
+\[
+\hat{y} = wx + b
+\]
 
 ---
 
 ## Training Results
-
-The loss decreases over time:
