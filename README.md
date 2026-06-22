@@ -9,9 +9,9 @@ The goal is to recover the parameters of a linear system from noisy synthetic da
 
 The analysis studies how gradient-based optimization can learn the underlying relation:
 
-\[
+$$
 y = 3x + 2 + \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)
-\]
+$$
 
 ---
 
@@ -23,9 +23,9 @@ The dataset is synthetically generated to simulate a controlled regression probl
 - Noise term \(\epsilon\): Gaussian noise with zero mean and fixed variance
 - Target variable:
 
-\[
+$$
 y = 3x + 2 + \epsilon
-\]
+$$
 
 The dataset is generated using NumPy and converted into PyTorch tensors.
 
@@ -57,9 +57,9 @@ The analysis is structured into four main stages.
 - Generating noise \(\epsilon \sim \mathcal{N}(0, \sigma^2)\)
 - Constructing target variable:
 
-\[
+$$
 y = 3x + 2 + \epsilon
-\]
+$$
 
 - Conversion to PyTorch tensors
 
@@ -69,51 +69,11 @@ y = 3x + 2 + \epsilon
 
 The model is a linear function:
 
-\[
+$$
 \hat{y} = wx + b
-\]
+$$
 
 implemented using:
 
-\[
-\text{Linear}(1,1)
-\]
-
-where \(w\) and \(b\) are learnable parameters.
-
----
-
-### 3. Training Procedure
-
-The model is trained by minimizing the Mean Squared Error (MSE):
-
-\[
-\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
-\]
-
-Optimization is performed using Stochastic Gradient Descent:
-
-\[
-\theta \leftarrow \theta - \eta \nabla_\theta \mathcal{L}
-\]
-
-with:
-- batch size = 32  
-- learning rate = 0.01  
-- epochs = 10  
-
----
-
-### 4. Inference and Parameter Estimation
-
-- Backpropagation is used to compute gradients
-- Parameters \(w\) and \(b\) are updated iteratively
-- Final learned model:
-
-\[
-\hat{y} = wx + b
-\]
-
----
-
-## Training Results
+```python
+torch.nn.Linear(1, 1)
