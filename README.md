@@ -170,5 +170,5 @@ $$
 
 ## Author
 
-Developed by Erasmo Pacini  
+Developed and mantained by Erasmo Pacini  
 Machine Learning fundamentals project using PyTorch
